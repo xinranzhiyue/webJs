@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+		<style>			
+			.fireFly{
+				position: absolute;
+				top: 50%;
+				left:50%;
+				box-shadow:20px 15px 15px #ADFF2F;
+				width: 30px;
+				height: 30px;
+				border-radius: 15px;
+				background-color: greenyellow;
+				opacity: 0.5;
+			}
+			img{
+				position: absolute;
+				bottom: 100px;
+				right: 100px;
+				width: 100px;								
+			}
+		</style>
+		<script src="js/jquery-2.2.1.js"></script>
+	</head>
+	<body>
+		<audio src="bgm/Bgm-虫儿飞.mp3" autoplay="true" loop="true"></audio>
+		<div id="bottle">
+			<img src="img/summer/bottle.png" class="img">
+		</div>		
+		<canvas id="canvas" class="canvas" width="683" height="384" style="display: none;"></canvas>
+		<canvas id="canvas2" class="canvas" width="1366" height="768" >Your browser doesn't support canvas</canvas>
+		<canvas id="canvas3" class="canvas" width="1366" height="768" style="display: none;"></canvas>
+		<div id="div">			
+			<div class="fireFly" style="opacity: 1;"></div>
+		</div>
+		<script src="js/fireFly.js"></script>
+	</body>
+</html>

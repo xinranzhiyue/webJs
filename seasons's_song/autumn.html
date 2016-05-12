@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+		<style>
+			input{
+				position: absolute;
+				top: 2%;
+				left:48%;
+				background: #FCEFA1;
+				outline: none;
+				border: none;
+				width: 10%;
+				height: 5%;
+				z-index: 100;
+				font-size: 16px;
+				line-height: 20px;
+			}
+			img{				
+				width: 80px;
+				height: 80px;			
+			}
+			#img{
+				position: absolute;
+				left: 0;
+				top: 0;	
+				width: 100px;
+				height: 100px;										
+			}
+			#leaves{
+				position: relative;								
+				width: 100%;				
+				background: url(img/autumn/background.jpg) repeat 0 0 / cover;
+			}
+			#leaves div {
+			    position: absolute;
+			    width: 100px;
+			    height: 100px;
+			    animation-iteration-count: infinite, infinite;
+			    animation-direction: normal, normal;
+			    animation-timing-function: linear, ease-in;
+			    -moz-animation-iteration-count: infinite, infinite;
+			    -moz-animation-direction: normal, normal;
+			    -moz-animation-timing-function: linear, ease-in;
+			}
+			#leaves div img {
+	     		position: absolute;
+		     	width: 100px;
+		     	height: 100px;
+		    	animation-iteration-count: infinite;
+		     	animation-direction: alternate;
+		     	animation-timing-function: ease-in-out;
+		     	transform-origin: 50% -100%;
+		     	-moz-animation-iteration-count: infinite;
+		     	-moz-animation-direction: alternate;
+		     	-moz-animation-timing-function: ease-in-out;
+		     	-moz-transform-origin: 50% -100%;
+			}
+			@keyframes fade{
+				/*透明度*/
+			    0%   { opacity: 1; }
+			    50%  { opacity: 1; }
+			    100% { opacity: 0; }
+			}
+
+			@keyframes drop
+			/*上下坠落距离*/
+			{		   
+			    0%   { transform: translate(0px, -50px); }		   
+			    100% { transform: translate(0px, 1000px); }
+			}
+	
+			@keyframes clockwiseSpin
+			/*坠落旋转角度 顺时针*/
+			{			 
+			    0%   { transform: rotate(80deg); }			   
+			    100% { transform: rotate(-80deg); }
+			}
+
+			@keyframes counterclockwiseSpinAndFlip 
+			{/*坠落旋转角度 逆时针*/
+			   
+			    0%   { transform: scale(-1, 1) rotate(50deg); }
+			    100% { transform: scale(-1, 1) rotate(-50deg); }
+			}
+			@-moz-keyframes fade{
+				/*透明度*/
+			    0%   { opacity: 1; }
+			    50%  { opacity: 1; }
+			    100% { opacity: 0; }
+			}
+
+			@-moz-keyframes drop
+			/*上下坠落距离*/
+			{		   
+			    0%   { -moz-transform: translate(0px, -50px); }		   
+			    100% { -moz-transform: translate(0px, 1000px); }
+			}
+	
+			@-moz-keyframes clockwiseSpin
+			/*坠落旋转角度 顺时针*/
+			{			 
+			    0%   { -moz-transform: rotate(80deg); }			   
+			    100% { -moz-transform: rotate(-80deg); }
+			}
+
+			@-moz-keyframes counterclockwiseSpinAndFlip 
+			{/*坠落旋转角度 逆时针*/
+			   
+			    0%   { -moz-transform: scale(-1, 1) rotate(50deg); }
+			    100% { -moz-transform: scale(-1, 1) rotate(-50deg); }
+			}
+		</style>
+	</head>
+	<body>		
+		<audio src="bgm/石进 - 夜的钢琴曲七.mp3" autoplay="true" loop="true"></audio>
+		<input type="button" name="start" id="start" value="落叶萧萧" />
+		<div id="leaves">
+			<div id="img"></div>
+		</div>
+	</body>
+	<script src="js/tools.js"></script>
+	<script src="js/fallingLeaves.js"></script>
+</html>

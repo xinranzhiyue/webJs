@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>snowman</title>
+		<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+		<style>
+		html, body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			background: -moz-radial-gradient(center, ellipse cover, #2424bf 10%, #222222 100%);
+			background: -ms-radial-gradient(center, ellipse cover, #2424bf 10%, #222222 100%);
+			background: -o-radial-gradient(center, ellipse cover, #2424bf 10%, #222222 100%);
+			background: -webkit-radial-gradient(center, ellipse cover, #2424bf 10%, #222222 100%);
+			background: radial-gradient(center, ellipse cover, #2424bf 10%, #222222 100%);
+			overflow:hidden;
+		}
+		canvas {
+			position: absolute;
+		}
+		.background{
+			background: #fff;
+			border-radius: 50% 50% 0 0;
+			position:absolute;
+			bottom: 0;
+			left:0;
+			width: 100%;
+			height: 30%;
+			overflow:hidden;
+		}
+		.snowman{
+			position:absolute;
+			left: 50%;
+			width: 100vw;
+	  		height: 100vh;
+		}
+		.snowman #body {
+	  		width: 15vw;
+	  		height: 15vw;
+	  		background: #ecf0f1;
+		  	box-shadow: -12px -8px 0px rgba(0,0,0,0.1) inset;
+		  	border-radius: 50%;
+		  	margin-top: -10vw;
+		  	position: absolute;
+		  	left:0;
+		  	top:22vw;
+		  	margin:0 auto;
+		}
+		.snowman #body1{
+		  	width: 10vw;
+		  	height: 10vw;
+		  	background: #ecf0f1;
+		  	box-shadow: -5px 0px 0px rgba(0,0,0,0.1) inset;
+		  	border-radius: 50%;
+		  	display: inline-block;
+		  	content: "";
+		  	position: relative;
+		  	top: -14vw;
+		  	left: 2vw;
+		  	z-index:10;
+		}
+		.snowman #body2 {
+		  	width: 12.5vw;
+		  	height: 12.5vw;
+		  	background: #ecf0f1;
+		  	box-shadow: -7px -5px 0px rgba(0,0,0,0.1) inset;
+		  	border-radius: 50%;
+		  	display: inline-block;
+		  	content: "";
+		  	position: relative;
+		  	top: -16vw;
+		  	left: 1vw;
+		}
+		.snowman #hat {
+			height: 0;
+			width: 6vw;
+			position: absolute;
+			top: -19vw;
+			left: 4vw;
+			-webkit-transform: rotate(10deg);
+			-moz-transform: rotate(10deg);
+			transform: rotate(10deg);
+			z-index: 10;
+			border-radius:1vw;
+			border-top: 4vw solid rgb(37, 37, 37);
+			border-left: 1vw solid transparent;
+			border-right: 1vw solid transparent;
+			border-bottom: 2vw solid rgb(246, 62, 62);
+		}
+
+		.snowman .button {
+		  	height: 1vw;
+		  	width: 1vw;
+		  	background: orangered;
+		  	position: absolute;
+		  	border-radius: 50%;
+		  	left: 6vw;
+		  	top: -2vw;
+		  	z-index: 10;
+		}
+		#nose {
+		  	width: 0px;
+		  	height: 0px;
+		  	border-style: solid;
+		  	border-width: 0.5vw 3vw 0.5vw 0;
+		  	border-color: transparent #FA9A20 transparent transparent;
+		  	content: "";
+		  	position: relative;
+		  	top: -32vw;
+		  	display: inline-block;
+		  	left: 4vw;
+		  	-webkit-transform: rotate(100deg);
+		  	-moz-transform: rotate(10deg);
+		  	transform: rotate(10deg);
+		  	z-index:10;
+		}
+		.eyes{
+		  	width: 1vw;
+		  	height: 1vw;
+		  	border-radius: 50%;
+		  	background: #000;
+		  	display: inline-block;
+		  	position: absolute;
+		  	top: -11vw;
+		  	left: 4vw;
+		  	z-index: 10;
+		}
+		#mouth{
+			width: 4vw;
+			height: 1vw;
+			border-radius: 0 0 50% 50%;
+			background: #000;
+			display: inline-block;
+			position: absolute;
+		  	top: -7vw;
+		  	left: 4vw;
+		  	z-index: 10;
+		}
+		#scarf {
+		  	border-bottom: 2vw solid red;
+		  	border-left: 1vw solid transparent;
+		  	border-right: 2vw solid transparent;
+		  	height: 0;
+		  	width: 10vw;
+		  	position: absolute;
+	 	 	top: -5vw;
+	 	 	z-index: 10;
+		  	left: 2vw;
+		  	border-radius: 50% 50% 5px 10px;
+		}
+		#scarf:after {
+		  	width: 6vw;
+		  	height: 2vw;
+		  	-webkit-transform: rotate(60deg);
+		  	-moz-transform: rotate(60deg);
+	 	 	transform: rotate(60deg);
+		  	background: red;
+		  	display: inline-block;
+		  	content: "";
+		  	position: absolute;
+		  	top: 3vw;
+		  	left: 3vw;
+		  	border-radius: 50% 50% ;
+		}
+		.shadow {
+		  	background: rgba(0,0,0,0.15);
+		  	border-radius: 50%;
+		  	width: 15vw;
+		  	height: 2vw;
+		  	position: absolute;
+		  	bottom: -2vw;
+		  	left: 0;
+		  	z-index: 10;
+		}
+		.hand {
+		  	position: absolute;
+		  	top: -1.5vw;
+		  	left: -1vw;
+		  	-webkit-transform: rotate(15deg);
+		  	-moz-transform: rotate(15deg);
+		  	transform: rotate(15deg);
+		  	border-bottom: 0.5vw solid rgba(128, 84, 50, 1);
+		  	border-left: 0.2vw solid transparent;
+		  	height: 0;
+		  	width: 3vw;
+		}
+		.hand:before {
+		  	width: 6vw;
+		  	height: 0.6vw;
+		  	top: 0;
+		  	left: -6vw;
+		  	position: absolute;
+		  	content: "";
+		  	display: inline-block;
+		  	-webkit-transform: rotate(-12deg);
+		  	-moz-transform: rotate(-12deg);
+		  	transform: rotate(-12deg);
+		  	border-bottom: 0.5vw solid rgba(120, 84, 10, 1);
+		  	border-left: 0.5vw solid transparent;
+		  	z-index:10;
+		}
+		.hand:after {
+		  	width: 3vw;
+		  	height: 1vw;
+		  	left: -5vw;
+		  	top: -1vw;
+		  	position: absolute;
+		  	content: "";
+		  	display: inline-block;
+		  	-webkit-transform: rotate(17deg);
+		  	-moz-transform: rotate(17deg);
+		  	transform: rotate(17deg);
+		  	border-bottom: 0.5vw solid rgba(120, 84, 10, 1);
+		  	border-radius: 2vw 50% 10% 20%;
+		}
+		</style>
+	</head>
+	<body>
+		<audio src="bgm/Snowdream.mp3" autoplay="true" loop="true"></audio>
+		<canvas id="canvas"></canvas>
+		<div class="background"></div>
+		<div class="snowman">
+			<div id="body">
+				<div id="body1"></div>
+				<div id="body2"></div>
+				<div class="eyes"></div>
+				<div class="eyes" style="top: -11vw;left: 8vw;"></div>
+				<div id="nose"></div>
+				<div id="mouth"></div>
+				<div id="hat"></div>
+				<div id="scarf"></div>
+		    <div id="buttons">
+		    	<div class="button"></div>
+		    	<div class="button" style="top:0vw;"></div>
+		    	<div class="button" style="top:2vw;"></div>
+		    </div>
+			<div class="id">
+				<div class="hand"></div>
+				<div class="hand" style="left:12vw;transform: rotate(170deg);"></div>
+			</div>
+			<div class="shadow"></div>
+		</div>
+		<script src="js/sonwMan.js"></script>
+	</body>
+</html>
